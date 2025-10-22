@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <title>QUẢN LÝ KHÁCH HÀNG</title>
+  </head>
+  <body>
+    <div id="page-content-wrapper" class="w-100">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <h3 class="mx-3">QUẢN LÝ KHÁCH HÀNG</h3>
+      </nav>
+      <div class="container-fluid p-4">
+        <h4>Hiển thị danh sách thông tin khách hàng</h4>
+        <table class="table table-bordered table-hover">
+          <thead class="table-primary">
+            <tr>
+              <th>STT</th>
+              <th>Mã KH</th>
+              <th>Email</th>
+              <th>Họ Tên</th>
+              <th>Giới tính</th>
+              <th>SDT</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>SGU001</td>
+              <td>khachhangA@mail.com</td>
+              <td>Nguyễn Văn A</td>
+              <td>Nam</td>
+              <td>0853123123</td>
+              <td><span class="badge bg-success">Hoạt động</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#resetPassModal"
+                >
+                  Reset Mật khẩu
+                </button>
+                <button class="btn btn-sm btn-danger">Khóa TK</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>SGU002</td>
+              <td>khachhangB@mail.com</td>
+              <td>Trần Thị B</td>
+              <td>Nữ</td>
+              <td>0853234234</td>
+              <td><span class="badge bg-danger">Bị khóa</span></td>
+              <td>
+                <button class="btn btn-sm btn-warning">Reset Mật khẩu</button>
+                <button class="btn btn-sm btn-success">Mở khóa TK</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="modal fade" id="resetPassModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

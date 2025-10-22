@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <title>QUẢN LÝ LOẠI SẢN PHẨM</title>
+  </head>
+  <body>
+    <div id="page-content-wrapper" class="w-100">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <h3 class="mx-3">QUẢN LÝ LOẠI SẢN PHẨM</h3>
+      </nav>
+      <div class="container-fluid p-4">
+        <button
+          class="btn btn-success mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#addCategoryModal"
+        >
+          + Thêm Loại Sản Phẩm
+        </button>
+        <div
+          class="modal fade"
+          id="deleteConfirmModal"
+          tabindex="-1"
+          aria-labelledby="deleteConfirmModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">
+                  XÁC NHẬN THAO TÁC
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Bạn có chắc chắn muốn <b id="actionType">ẨN</b> loại sản phẩm
+                  <b id="categoryNameDisplay">Áo</b> này không?
+                </p>
+                <div class="alert alert-warning mt-3">
+                  Lưu ý: Thao tác này có thể ảnh hưởng đến việc hiển thị sản
+                  phẩm trên website.
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="confirmDeleteBtn"
+                >
+                  Xác nhận
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered table-striped">
+          <thead class="table-info">
+            <tr>
+              <th>Mã Loại</th>
+              <th>Tên Loại</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CL001</td>
+              <td>Áo</td>
+              <td><span class="badge bg-success">Hiển thị</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addCategoryModal"
+                  data-category-id="CL001"
+                  data-category-name="Áo"
+                >
+                  Sửa
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteConfirmModal"
+                  data-action="ẨN"
+                >
+                  Xóa / Ẩn
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>CL002</td>
+              <td>Quần</td>
+              <td><span class="badge bg-success">Hiển thị</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addCategoryModal"
+                  data-category-id="CL002"
+                  data-category-name="Quần"
+                >
+                  Sửa
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteConfirmModal"
+                  data-action="ẨN"
+                >
+                  Xóa / Ẩn
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="deleteConfirmModal"
+      tabindex="-1"
+      aria-labelledby="deleteConfirmModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="deleteConfirmModalLabel">
+              XÁC NHẬN THAO TÁC
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Bạn có chắc chắn muốn <b id="actionType">ẨN</b> loại sản phẩm
+              <b id="categoryNameDisplay">Áo</b> này không?
+            </p>
+            <div class="alert alert-warning mt-3">
+              Lưu ý: Thao tác này có thể ảnh hưởng đến việc hiển thị sản phẩm
+              trên website.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+              Xác nhận
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="addCategoryModal"
+      tabindex="-1"
+      aria-labelledby="addCategoryModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal fade"
+        id="deleteConfirmModal"
+        tabindex="-1"
+        aria-labelledby="deleteConfirmModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="deleteConfirmModalLabel">
+                XÁC NHẬN THAO TÁC
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Bạn có chắc chắn muốn <b id="actionType">ẨN</b> loại sản phẩm
+                <b id="categoryNameDisplay">Áo</b> này không?
+              </p>
+              <div class="alert alert-warning mt-3">
+                Lưu ý: Thao tác này có thể ảnh hưởng đến việc hiển thị sản phẩm
+                trên website.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="confirmDeleteBtn"
+              >
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-info text-white">
+            <h5 class="modal-title" id="addCategoryModalLabel">
+              THÊM/SỬA LOẠI SẢN PHẨM
+            </h5>
+            <div
+              class="modal fade"
+              id="deleteConfirmModal"
+              tabindex="-1"
+              aria-labelledby="deleteConfirmModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">
+                      XÁC NHẬN THAO TÁC
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      Bạn có chắc chắn muốn <b id="actionType">ẨN</b> loại sản
+                      phẩm <b id="categoryNameDisplay">Áo</b> này không?
+                    </p>
+                    <div class="alert alert-warning mt-3">
+                      Lưu ý: Thao tác này có thể ảnh hưởng đến việc hiển thị sản
+                      phẩm trên website.
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Hủy
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="confirmDeleteBtn"
+                    >
+                      Xác nhận
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="categoryName" class="form-label"
+                  >Tên Loại (*)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="categoryName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="categoryStatus" class="form-label"
+                  >Trạng thái (*)</label
+                >
+                <select class="form-select" id="categoryStatus">
+                  <option value="show">Hiển thị</option>
+                  <option value="hide">Ẩn</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Đóng
+            </button>
+            <button type="submit" class="btn btn-primary">Lưu Loại SP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
